@@ -2,6 +2,12 @@
 
 @section('dynblock')
 
+<script>
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
+
 <body>
     <div class="container-xxl py-5">
         <div class="container">

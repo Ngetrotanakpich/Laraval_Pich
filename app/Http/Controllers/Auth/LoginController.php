@@ -13,89 +13,67 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
+
+
+
 class LoginController extends Controller
 {
-
-
     public function show_login_form()
     {
-        return view('sign_in');
+        return view('login');
     }
-
 
     public function process_login(Request $request)
     {
         $request->validate([
             'password' => 'required',
             'name' => 'required'
-            
         ]);
-
 
         $credentials = $request->except(['_token']);
 
-        //dd( $request);
-
-        $user = User::where('name',$request->name)->first();
-
-        if (auth()->attempt($credentials)) {  // user and password match
-
-            return redirect("/");  // Redirect to homepage
-
-        }else{
-
-            session()->flash('message', 'Invalid credentials'); // Reture error if password and user wrong
+        if (auth()->attempt($credentials)) {
+            return redirect()->intended('/'); // Redirect to the intended page after successful login
+        } else {
+            session()->flash('message', 'Invalid credentials');
             return redirect()->back();
         }
-
     }
 
     public function show_signup_form()
     {
-        return view('sign_up');
+        return view('signup');
     }
 
     public function process_signup(Request $request)
     {
-
         $request->validate([
             'Name' => 'required',
             'Password' => 'required',
-            //'Contact_number' => 'required',
             'Email' => 'required'
-            
         ]);
 
-        try{
+        try {
             User::create([
                 'name' => trim($request->input('Name')),
-                'password' => bcrypt($request->input('Password')),  // Password bcrypt
-                //'Contact_number' => bcrypt($request->input('Contact_number')), 
+                'password' => bcrypt($request->input('Password')),
                 'email' => strtolower($request->input('Email')),
-
-                
             ]);
 
-            session()->flash('message', 'Your account is created');
-
+            session()->flash('message', 'Your account has been created');
         } catch (\Illuminate\Database\QueryException $e) {
-            //report($e);
-            session()->flash('message', 'Your registration is getting problem');
-
+            session()->flash('message', 'There was an error with your registration');
         }
 
-        return redirect()->route('sign_in');
-
+        return redirect()->route('login');
     }
 
     public function logout()
     {
-
         \Auth::logout();
 
-        return redirect()->route('sign_in');
-
+        return redirect()->route('login');
     }
-
-
 }

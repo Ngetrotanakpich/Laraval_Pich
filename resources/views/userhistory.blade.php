@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>
-                    <h1>ID</h1>
+                    <h1>User-ID</h1>
                 </th>
                 <th>
                     <h1>Username</h1>
@@ -30,7 +30,7 @@
                 <th>
                     <h1>Start Date</h1>
                 </th>
-                
+
                 <th>
                     <h1>Price</h1>
                 </th>
@@ -50,29 +50,26 @@
         </thead>
 
         <tbody>
-            <!-- <tr>
-                <td>Google</td>
-                <td>9518</td>
-                <td>6369</td>
-                <td>01:32:50</td>
-                <td>01:32:50</td>
-                <td>01:32:50</td>
-                <td>01:32:50</td>
-            </tr> -->
+
 
             @foreach ($v_show as $info)
+
+            @if ($info->user_id === Auth::user()->id)
+
             <tr>
-                <td> {{ $info->id}} </td>
+                <td> {{ $info->user_id}} </td>
                 <td> {{ $info->name}} </td>
                 <td> {{ $info->email}} </td>
                 <td> {{ $info->start }} </td>
-                
+
                 <td> {{ $info->price }} </td>
                 <td> {{ $info->country}} </td>
                 <td> {{ $info->amount }} </td>
                 <td> {{ $info->s_request }} </td>
                 <td><a href="/edit/{{ $info->id }}"> | Edit | </td>
             </tr>
+            @endif
+
             @endforeach
         </tbody>
     </table>
@@ -80,4 +77,4 @@
     <script src="./script.js"></script>
 </body>
 
-</html> 
+</html>

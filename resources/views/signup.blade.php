@@ -8,14 +8,14 @@
 
 <body>
   <section>
-@if(session('message'))
+    @if(session('message'))
 
-<div class="alert alert-success">
+    <div class="alert alert-success">
 
-{{session('message')}}
-</div>
+      {{session('message')}}
+    </div>
 
-@endif
+    @endif
 
     <div class="form-box">
       <div class="form-value">
@@ -37,13 +37,13 @@
             <input name="Name" type="input" required />
             <label for="">User Name</label>
           </div>
-        
+
 
           <div class="forget">
             <label for=""><input type="checkbox" />Remember Me
               <a href="#" style="color: red">Forget Password</a></label>
           </div>
-          <input type="submit" value="Create" >
+          <input type="submit" value="Create">
           <div class="register">
             <p>
               Already Have Account?

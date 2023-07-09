@@ -39,12 +39,12 @@
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Switzerland</small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1 week</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                               
                             </div>
                             <a class="h5 text-decoration-none" href="/switzerland">Discover amazing places of the Switzerland</a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(200)</small></h6>
+                                  
                                     <h5 class="m-0">$3999</h5>
                                 </div>
                             </div>
@@ -58,12 +58,12 @@
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>China</small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 weeks</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                               
                             </div>
                             <a class="h5 text-decoration-none" href="/china">Discover amazing places of the world with us</a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                   
                                     <h5 class="m-0">$2050</h5>
                                 </div>
                             </div>
@@ -77,12 +77,12 @@
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 weeks</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                               
                             </div>
                             <a class="h5 text-decoration-none" href="/thailand">Discover amazing places of the world with us</a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                   
                                     <h5 class="m-0">$2350</h5>
                                 </div>
                             </div>

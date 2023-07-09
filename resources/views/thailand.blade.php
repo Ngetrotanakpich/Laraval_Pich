@@ -55,66 +55,39 @@
                     <!-- Blog Detail End -->
     
                     <!-- Comment List Start -->
-                    <div class="bg-white" style="padding: 30px; margin-bottom: 30px;">
-                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
-                        <div class="media mb-4">
-                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                            <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>description</p>
-                                <button class="btn btn-sm btn-outline-primary">Reply</button>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                            <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>description</p>
-                                <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                <div class="media mt-4">
-                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
-                                        style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                        <p>description</p>
-                                        <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- Comment List End -->
     
                     <!-- Comment Form Start -->
                     <div class="bg-white mb-3" style="padding: 30px;">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h4>
-                        <form>
+                        <form method="POST" action="/thailand">
+                        @csrf
                             <div class="form-group">
                                 <label for="name">Name *</label>
-                                <input type="text" class="form-control" id="name">
+                                <input  name="thailand_name" type="text" class="form-control" id="name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" class="form-control" id="email">
+                                <input  name="thailand_email" type="email" class="form-control" id="email">
                             </div>
                             <div class="form-group">
                                 <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
+                                <input  name="thailand_website"  type="text" class="form-control" id="website">
                             </div>
     
                             <div class="form-group">
                                 <label for="message">Message *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                <textarea  name="thailand_message"  id="message" cols="30" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
-                                <input type="submit" value="Leave a comment"
-                                    class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                            <button type="submit" class="btn btn-default">  Leave a comment</button>
+                               
                             </div>
                         </form>
                     </div>
-                    <!-- Comment Form End -->
-                </div>
-    
+
+     </div>
                 <div class="col-lg-4 mt-5 mt-lg-0">
                     <!-- Author Bio -->
                     <div class="d-flex flex-column text-center bg-white mb-5 py-5 px-4">

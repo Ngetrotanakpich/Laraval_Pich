@@ -7,18 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\user_comment_china_package;
 use App\Models\user_comment_switzerland_package;
 use App\Models\user_comment_thailand_package;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Auth\LogoutController;
 
-//-----
+
+
 Route::get('/login', function () {
     return view('sign_in');
 })->name("login");
@@ -29,8 +21,9 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::post('/signup',[LoginController::class,'process_signup'] );
-Route::post('/signin',[LoginController::class,'process_login'] );
+
+Route::post('/signup', [LoginController::class, 'process_signup']);
+Route::post('/signin', [LoginController::class, 'process_login']);
 
 //-----
 
@@ -92,40 +85,38 @@ Route::get('/user', function () {
 // });
 Route::get('/china', [Tour_controller::class, 'getUserCommentForm'])->name('china');
 Route::post('/china', [Tour_controller::class, 'china'])->name('china');
-Route::get('/tbl_user_comment_china_package', [Tour_controller::class, 'getUserCommentData'] );
+Route::get('/tbl_cuser_comment_china_package', [Tour_controller::class, 'getUserCommentData']);
 
 //User comment switzerland package
-Route::get('/switzerland', [Tour_controller::class, 'getUserCommentForm'])->name('switzerland');
+Route::get('/switzerland', [Tour_controller::class, 'getUsersCommentForm'])->name('switzerland');
 Route::post('/switzerland', [Tour_controller::class, 'switzerland'])->name('switzerland');
-Route::get('/tbl_user_comment_switzerland_package', [Tour_controller::class, 'getUserCommentData'] );
+Route::get('/tbl_suser_comment_switzerland_package', [Tour_controller::class, 'getUserCommentData']);
 
 //User comment china package
-Route::get('/thailand', [Tour_controller::class, 'getUserCommentForm'])->name('thailand');
+Route::get('/thailand', [Tour_controller::class, 'getUserssCommentForm'])->name('thailand');
 Route::post('/thailand', [Tour_controller::class, 'thailand'])->name('thailand');
-Route::get('/tbl_user_comment_thailand_package', [Tour_controller::class, 'getUserCommentData'] );
+Route::get('/tbl_tuser_comment_thailand_package', [Tour_controller::class, 'getUserCommentData']);
 
 
+Route::post('/process_signup', 'Auth\LoginController@process_signup')->name('process_signup');
+  
 
-
-
-
-//
 
 // Protected group by middleware
-Route::group(["middleware" => ["auth"]], function(){
+Route::group(["middleware" => ["auth"]], function () {
+    Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+  
+    Route::get('/userhistory', [Tour_controller::class, 'view']);
+
+    Route::get('/booking', [Tour_controller::class, 'add']);
+    // Route::post('/booking', [Tour_controller::class, 'booking'])->name('booking'); // Use "form.store" as the route name
+    Route::post('/booking', [Tour_controller::class, 'booking'])->name('booking');
 
 
-        Route::get('/userhistory', [Tour_controller::class, 'view']);
+    Route::get('/view', [Tour_controller::class, 'view'])->name('view');
 
-        Route::get('/booking', [Tour_controller::class, 'add']);
-        // Route::post('/booking', [Tour_controller::class, 'booking'])->name('booking'); // Use "form.store" as the route name
-        Route::post('/booking', [Tour_controller::class, 'booking'])->name('booking');
+    Route::get('/edit/{id}', [Tour_controller::class, 'edit']);
+    Route::post('/edit', [Tour_controller::class, 'edit_value'])->name('edit.update'); // Use "edit.update" as the route name
 
-
-        Route::get('/view', [Tour_controller::class, 'view'])->name('view');
-
-        Route::get('/edit/{id}', [Tour_controller::class, 'edit']);
-        Route::post('/edit', [Tour_controller::class, 'edit_value'])->name('edit.update'); // Use "edit.update" as the route name
-
-        Route::get('/delete/{id}', [Tour_controller::class, 'delete']);
+    Route::get('/delete/{id}', [Tour_controller::class, 'delete']);
 });

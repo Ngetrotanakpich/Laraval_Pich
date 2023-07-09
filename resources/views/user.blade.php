@@ -42,56 +42,8 @@
         </div>
     </div>
     </div>
-    <!-- Topbar End -->
 
 
-    <!-- Navbar Start -->
-    <!-- <div class="container-fluid position-relative nav-bar p-0">
-        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">Tour With</span>Me</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
-                        <a href="/index" class="nav-item nav-link">Home</a>
-                        <a href="/booking" class="nav-item nav-link">Booking</a>
-                        <a href="/service" class="nav-item nav-link">Services</a>
-                        <a href="/package" class="nav-item nav-link">Tour Packages</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="/guide" class="dropdown-item">Travel Guides</a>
-                                <a href="/testimonial" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        <a href="/sign_in" class="nav-item nav-link">Sign In</a>
-
-              
-                        <div class="dropdown">
-                            <a class="d-flex align-items-center" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="download.jpg" alt="Profile Picture" class="rounded-circle" width="40" height="40">
-                                <span class="ms-2">Heng</span>
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Booked History</a></li>
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                        </div>
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div> -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
@@ -115,18 +67,23 @@
                         </div>
                         <a href="/package" class="nav-item nav-link mr-3">Tour Packages</a>
 
+                        <!-- Update the navbar code -->
+                        <!-- ... -->
                         <div class="dropdown">
                             <a class="nav-link  btn-success dropdown-toggle" href="#" role="button" id="profileDropdown" data-toggle="dropdown">
                                 <img src="download.jpg" alt="Profile Picture" class="rounded-circle" width="40" height="40">
-                                <span class="ms-2">HENG</span>
+                                <span class="ms-2">{{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu border-0 rounded-0 m-0" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item" href="/userhistory">Booked History</a>
-
                                 <hr class="dropdown-divider">
-                                <a class="dropdown-item" href="/index">Logout</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
+                        <!-- ... -->
+
+
+
                     </div>
                 </div>
             </nav>
@@ -146,7 +103,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                            <a href="/booking" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
                         </div>
                     </div>
                 </div>
